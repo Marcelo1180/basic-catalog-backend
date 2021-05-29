@@ -1,0 +1,18 @@
+{
+  "TIME_ZONE": "America/La_Paz",
+  "LANGUAGE_CODE": "es-ES",
+  "SECRET_KEY": "changeme-secret-key",
+  "SECURITY": {
+    "ALLOWED_HOSTS": [
+      "192.168.33.20"
+    ]
+  },
+  "DATABASES": {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db.sqlite3"
+    }
+  },
+  "DEBUG": true,
+  "URL_SERVER": "http://localhost:8000"
+}
