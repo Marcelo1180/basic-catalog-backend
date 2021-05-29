@@ -1,6 +1,6 @@
 # Project django base for examples
 
-This project was tested in debian 10.
+This project was tested in debian 10
 
 ## Technologies
   - Django 3.2.3
