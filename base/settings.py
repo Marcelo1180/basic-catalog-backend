@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import sys
+import logging
 import datetime
 from pathlib import Path
 from .core.json_settings import get_settings
@@ -129,6 +131,7 @@ LOGGING = {
         "console": {"format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"}
     },
     "handlers": {
+        "develop": {"class": "logging.StreamHandler", "formatter": "console"},
         "console": {"class": "logging.StreamHandler", "formatter": "console"},
     },
     "loggers": {
@@ -140,3 +143,7 @@ LOGGING = {
         },
     },
 }
+
+# Disable logging while running unit tests
+if len(sys.argv) > 1 and sys.argv[1] == "test":
+    logging.disable(logging.CRITICAL)
