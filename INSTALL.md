@@ -25,3 +25,19 @@ Instancing your key to forwarding agent for git push
 ```sh
 ssh-add -k ~/.ssh/privatekey
 ```
+
+Demon service install
+```sh
+cd /etc/systemd/system
+sudo ln -s /vagrant/django-base-backend/main.service .
+```
+
+Start service
+```sh
+sudo service main start
+```
+
+Watch logs
+```sh
+sudo journalctl -e -u main.service
+```

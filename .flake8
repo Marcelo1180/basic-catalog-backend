@@ -8,4 +8,5 @@ exclude =
     build,
     dist
 max-complexity = 18
+max-line-length = 80
 select = B,C,E,F,W,T4,B9

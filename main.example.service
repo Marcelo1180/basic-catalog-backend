@@ -1,0 +1,14 @@
+# /etc/systemd/system/main.service
+[Unit]
+Description=Server
+After=network.target
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDirectory=/vagrant/django-base-backend
+ExecStart=/home/vagrant/.venv/bin/waitress-serve --listen=0.0.0.0:8000 base.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
