@@ -50,4 +50,4 @@ class TestCaseUser(APITestCase):
         # Check status code
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         # Check if key result exist
-        self.assertIn("detail", response.json())
+        self.assertIn("error", response.json())

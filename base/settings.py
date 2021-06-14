@@ -97,32 +97,27 @@ STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Adding slash at api end
+APPEND_SLASH = False
+
 # DRF authentication permissions
+# https://idiomaticprogrammers.com/post/how-to-implement-auto-expiring-token-in-django-rest-framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.TokenAuthentication",
+        "base.apps.account.authentication.ExpiringTokenAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
-# Model to manage token data
-REST_AUTH_TOKEN_MODEL = "base.apps.account.models.Token"
 # Funtion to create custom token
 REST_AUTH_TOKEN_CREATOR = "base.apps.account.utils.custom_create_token"
-# https://idiomaticprogrammers.com/post/how-to-implement-auto-expiring-token-in-django-rest-framework
 # Time of expiration token in hours
 TOKEN_TTL = datetime.timedelta(hours=4)
+# TOKEN_TTL = datetime.timedelta(milliseconds=1)
 # Enable old password in method change password
 OLD_PASSWORD_FIELD_ENABLED = True
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# ACCOUNT_EMAIL_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'username'
-# ACCOUNT_EMAIL_VERIFICATION = 'optional'
-# LOGGING
-# DJANGO_LOG_LEVEL = DEBUG
 # https://docs.djangoproject.com/en/3.2/topics/logging/
 LOGGING = {
     "version": 1,
@@ -147,3 +142,11 @@ LOGGING = {
 # Disable logging while running unit tests
 if len(sys.argv) > 1 and sys.argv[1] == "test":
     logging.disable(logging.CRITICAL)
+
+# Swagger settings for using drf apithoken
+SWAGGER_SETTINGS = {
+    "USE_SESSION_AUTH": False,
+    "SECURITY_DEFINITIONS": {
+        "DRF Token": {"type": "apiKey", "name": "Authorization", "in": "header"}
+    },
+}
