@@ -19,12 +19,14 @@ class TestCaseToken(APITestCase):
         self.token = response.json()["key"]
 
     @override_settings(TOKEN_TTL=datetime.timedelta(milliseconds=1))
-    def test_get_user_expiration_token(self):
+    def test_get_user_expiration_tokend(self):
         # Forcing expiration token 1 ms and waitng 2 ms
         time.sleep(0.002)
         # Issue
-        response = self.client.get("/account/v1/user/")
+        response = self.client.get(
+            "/account/v1/user/", HTTP_AUTHORIZATION=f"Token {self.token}"
+        )
         # Check status code
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         # Check if key result exist
-        self.assertIn("detail", response.json())
+        self.assertIn("error", response.json())

@@ -15,6 +15,7 @@ THIRD_PARTY_APPS = (
     "rest_framework",
     "rest_framework.authtoken",
     "dj_rest_auth",
+    "drf_yasg",
 )
 
 
