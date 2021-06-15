@@ -1,9 +1,10 @@
 # INSTALL django base project
 
 ## Installing in DEVELOPMENT MODE
-Installing requirements
+Installing general and dev dependencies
 ```sh
 pipenv install --ignore-pipfile
+pipenv install --ignore-pipfile --dev
 ```
 
 Access to the virtualenv
