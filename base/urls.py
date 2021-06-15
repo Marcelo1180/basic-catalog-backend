@@ -23,7 +23,6 @@ from drf_yasg import openapi
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("account/v1/", include("base.apps.account.urls")),
 ]
 
@@ -43,13 +42,14 @@ schema_view = get_schema_view(
 
 if settings.DEBUG:
     urlpatterns += [
+        path("admin/", admin.site.urls),
         url(
-            r"^swagger(?P<format>\.json|\.yaml)$",
+            r"^apidoc(?P<format>\.json|\.yaml)$",
             schema_view.without_ui(cache_timeout=0),
             name="schema-json",
         ),
         url(
-            r"^swagger/$",
+            r"^apidoc/$",
             schema_view.with_ui("swagger", cache_timeout=0),
             name="schema-swagger-ui",
         ),

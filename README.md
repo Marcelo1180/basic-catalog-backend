@@ -1,21 +1,33 @@
 # Project django base for examples
 
-This project was tested in debian 10.
+This project was tested in:
+- Debian 10
+- MacOSX Big Sur
 
-## Technologies
-  - Django 3.2.3
+## Requirements
+  - pipenv
 
 ## Installation guide
 * [Installing the project](INSTALL.md)
+* [How use git](FAQ.md)
 
 Setup config settings
 ```sh
 cp settings.example.json settings.json 
 ```
+__DEBUG=true__ is used for debugging mode, in this mode you can use:
+- admin/ (Classic admin of django)
+- apidoc/ (Swagger api documentation)
+- logging with level DEBUG
 
-Run dev server
+Run development server
 ```sh
-python manage.py runserver 0.0.0.0:8000
+(env)$ python manage.py runserver
+```
+
+Run tests
+```sh
+(env)$ python manage.py test
 ```
 
 ## License

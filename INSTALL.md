@@ -1,35 +1,36 @@
 # INSTALL django base project
 
-Making a virtualenvironment
-```sh
-virtualenv .venv
-source .venv/bin/activate
-```
-
+## Installing in DEVELOPMENT MODE
 Installing requirements
 ```sh
-pip install -r requirements.txt
+pipenv install --ignore-pipfile
 ```
 
-If you don't have a ssh key then use following command
-after that config you privatekey.pub into your github account
+Access to the virtualenv
 ```sh
-ssh-keygen -t rsa -C "demo@email.com"
-Generating public/private rsa key pair.
-Enter file in which to save the key (~/.ssh/id_rsa): ~/.ssh/privatekey
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
+pipenv shell
 ```
 
-Instancing your key to forwarding agent for git push
+Run migrations
 ```sh
-ssh-add -k ~/.ssh/privatekey
+(env)$ python manage.py migrate
 ```
+
+Create a super user
+```sh
+(env)$ python manage.py createsuperuser
+```
+
+## Installing in PRODUCTION MODE
+Requirements:
+- Debian 10
+
+In production mode settings.json its important to set __DEBUG=false__
 
 Demon service install
 ```sh
 cd /etc/systemd/system
-sudo ln -s /vagrant/django-base-backend/main.service .
+sudo ln -s <path root project>/main.service .
 ```
 
 Start service

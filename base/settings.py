@@ -100,7 +100,7 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Adding slash at api end
-APPEND_SLASH = False
+# APPEND_SLASH = False
 
 # DRF authentication permissions
 # https://idiomaticprogrammers.com/post/how-to-implement-auto-expiring-token-in-django-rest-framework
