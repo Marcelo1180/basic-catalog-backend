@@ -14,13 +14,11 @@ import sys
 import logging
 import datetime
 from pathlib import Path
-from .core.json_settings import get_settings
 from .core.applist import *
+from .core.database import *
 from .core.internationalization import *
+from distutils.util import strtobool
 
-
-# Loading json settings
-settings = get_settings()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,11 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = settings["SECRET_KEY"]
+SECRET_KEY = os.getenv("SECRET_KEY", "change-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = settings["DEBUG"]
-ALLOWED_HOSTS = settings["SECURITY"]["ALLOWED_HOSTS"]
+DEBUG = strtobool(os.getenv("DEBUG", False))
+ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS", "")]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -66,11 +64,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "base.wsgi.application"
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = settings["DATABASES"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
