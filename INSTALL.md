@@ -1,27 +1,45 @@
 # INSTALL django base project
 
-Making a virtualenvironment
+## Installing in DEVELOPMENT MODE
+Installing general and dev dependencies
 ```sh
-virtualenv .venv
-source .venv/bin/activate
+pipenv install --ignore-pipfile
+pipenv install --ignore-pipfile --dev
 ```
 
-Installing requirements
+Access to the virtualenv
 ```sh
-pip install -r requirements.txt
+pipenv shell
 ```
 
-If you don't have a ssh key then use following command
-after that config you privatekey.pub into your github account
+Run migrations
 ```sh
-ssh-keygen -t rsa -C "demo@email.com"
-Generating public/private rsa key pair.
-Enter file in which to save the key (~/.ssh/id_rsa): ~/.ssh/privatekey
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
+(env)$ python manage.py migrate
 ```
 
-Instancing your key to forwarding agent for git push
+Create a super user
 ```sh
-ssh-add -k ~/.ssh/privatekey
+(env)$ python manage.py createsuperuser
+```
+
+## Installing in PRODUCTION MODE
+Requirements:
+- Debian 10
+
+In production mode settings.json its important to set __DEBUG=false__
+
+Demon service install
+```sh
+cd /etc/systemd/system
+sudo ln -s <path root project>/main.service .
+```
+
+Start service
+```sh
+sudo service main start
+```
+
+Watch logs
+```sh
+sudo journalctl -e -u main.service
 ```
