@@ -23,4 +23,7 @@ RUN pipenv install --ignore-pipfile --deploy --system
 EXPOSE $PORT
 # CMD ["waitress-serve","--listen=0.0.0.0:$PORT","base.wsgi:application"]
 # CMD ["waitress-serve","--port=$PORT","base.wsgi:application"]
-CMD ["python","manage.py","runserver","0.0.0.0:${PORT}"]
+# CMD ["python","manage.py","runserver","0.0.0.0:$PORT"]
+# CMD waitress-serve --listen=0.0.0.0:$PORT base.wsgi:application
+# CMD ["sh", "-c", "waitress-serve","--listen=0.0.0.0:$PORT","base.wsgi:application"]
+CMD ["sh", "-c", "waitress-serve --listen=0.0.0.0:$PORT base.wsgi:application"]
