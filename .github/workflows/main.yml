@@ -56,14 +56,14 @@ jobs:
           heroku_app_name: "django-base-backend"
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
-          docker_build_args: |
-            HD_DEBUG
-            HD_ALLOWED_HOSTS
-            HD_SECRET_KEY
-            HD_DB_ENGINE
-            HD_DB_NAME
-            HD_TIME_ZONE
-            HD_LANGUAGE_CODE
+          # docker_build_args: |
+          #   HD_DEBUG
+          #   HD_ALLOWED_HOSTS
+          #   HD_SECRET_KEY
+          #   HD_DB_ENGINE
+          #   HD_DB_NAME
+          #   HD_TIME_ZONE
+          #   HD_LANGUAGE_CODE
         env:
           HD_DEBUG: "true"
           HD_ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
