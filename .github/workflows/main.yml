@@ -58,7 +58,7 @@ jobs:
           usedocker: true
         env:
           DEBUG: true
-          ALLOWED_HOSTS: localhost
+          ALLOWED_HOSTS: django-base-backend.herokuapp.com
           SECRET_KEY: 'change-secret-key'
           DB_ENGINE: django.db.backends.sqlite3
           DB_NAME: db.sqlite3
