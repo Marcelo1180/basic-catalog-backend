@@ -52,7 +52,7 @@ jobs:
       - name: Deploy dev on heroku
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: 7c187bb8-b116-4200-b31f-0e0718432705
+          heroku_api_key: ${{ secrets.HEROKU_APIKEY }}
           heroku_app_name: "django-base-backend" #Must be unique in Heroku
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
