@@ -55,8 +55,7 @@ jobs:
           heroku_api_key: 7622fe79-bbd4-49c6-a038-86ccc5c76e24
           heroku_app_name: "django-base-backend" #Must be unique in Heroku
           heroku_email: "arteagamarcelo@gmail.com"
-        run: |
-          heroku config:set DISABLE_COLLECTSTATIC=1
+          usedocker: true
         env:
           DEBUG: true
           ALLOWED_HOSTS: localhost
@@ -65,4 +64,3 @@ jobs:
           DB_NAME: db.sqlite3
           TIME_ZONE: America/La_Paz
           LANGUAGE_CODE: es-ES
-          DISABLE_COLLECTSTATIC: 1
