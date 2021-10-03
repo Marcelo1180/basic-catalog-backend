@@ -3,8 +3,8 @@ import os
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
-LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "")
-TIME_ZONE = os.getenv("TIME_ZONE", "")
+LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "es-ES")
+TIME_ZONE = os.environ.get("TIME_ZONE", "America/La_Paz")
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
