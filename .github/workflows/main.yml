@@ -50,25 +50,25 @@ jobs:
       #     LANGUAGE_CODE: es-ES
 
       - name: Deploy dev on heroku
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_APIKEY }}
-          heroku_app_name: "django-base-backend" #Must be unique in Heroku
+          heroku_app_name: "django-base-backend"
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
           docker_build_args: |
-            DEBUG
-            ALLOWED_HOSTS
-            SECRET_KEY
-            DB_ENGINE
-            DB_NAME
-            TIME_ZONE
-            LANGUAGE_CODE
+            HD_DEBUG
+            HD_ALLOWED_HOSTS
+            HD_SECRET_KEY
+            HD_DB_ENGINE
+            HD_DB_NAME
+            HD_TIME_ZONE
+            HD_LANGUAGE_CODE
         env:
-          DEBUG: "true"
-          ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
-          SECRET_KEY: "change-secret-key"
-          DB_ENGINE: "django.db.backends.sqlite3"
-          DB_NAME: "db.sqlite3"
-          TIME_ZONE: "America/La_Paz"
-          LANGUAGE_CODE: "es-ES"
+          HD_DEBUG: "true"
+          HD_ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
+          HD_SECRET_KEY: "change-secret-key"
+          HD_DB_ENGINE: "django.db.backends.sqlite3"
+          HD_DB_NAME: "db.sqlite3"
+          HD_TIME_ZONE: "America/La_Paz"
+          HD_LANGUAGE_CODE: "es-ES"
