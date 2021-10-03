@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R nobody:nogroup /home/nobody
 
-COPY --chown=nobody:nogroup Pipfile Pipfile.lock .
+COPY --chown=nobody:nogroup Pipfile Pipfile.lock ./
 
 RUN pipenv install --ignore-pipfile --deploy --system
 
