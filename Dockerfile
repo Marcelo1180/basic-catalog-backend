@@ -19,6 +19,6 @@ RUN pipenv install --ignore-pipfile --deploy --system
 
 # COPY --chown=nobody:nogroup . .
 
-EXPOSE 443
-
-CMD ["waitress-serve","--listen=0.0.0.0:443","base.wsgi:application"]
+ENV PORT=8000
+EXPOSE $PORT
+CMD ["waitress-serve","--listen=0.0.0.0:$PORT","base.wsgi:application"]
