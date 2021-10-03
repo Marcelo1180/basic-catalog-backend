@@ -19,7 +19,8 @@ RUN pipenv install --ignore-pipfile --deploy --system
 
 # COPY --chown=nobody:nogroup . .
 
-ENV PORT=8000
+# ENV PORT=8000
 EXPOSE $PORT
 # CMD ["waitress-serve","--listen=0.0.0.0:$PORT","base.wsgi:application"]
-CMD ["waitress-serve","--port=$PORT","base.wsgi:application"]
+# CMD ["waitress-serve","--port=$PORT","base.wsgi:application"]
+CMD ["python","manage.py","runserver","0.0.0.0:$PORT"]
