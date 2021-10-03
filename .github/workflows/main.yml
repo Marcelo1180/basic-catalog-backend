@@ -53,7 +53,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: 7622fe79-bbd4-49c6-a038-86ccc5c76e24
-          heroku_app_name: "Django Base Backend" #Must be unique in Heroku
+          heroku_app_name: "django-base-backend" #Must be unique in Heroku
           heroku_email: "arteagamarcelo@gmail.com"
         env:
           DEBUG: true
