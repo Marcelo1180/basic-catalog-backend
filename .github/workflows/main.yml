@@ -72,3 +72,12 @@ jobs:
           HD_DB_NAME: "db.sqlite3"
           HD_TIME_ZONE: "America/La_Paz"
           HD_LANGUAGE_CODE: "es-ES"
+
+      - name: Run migrations Django on heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_APIKEY }}
+          heroku_app_name: "django-base-backend"
+          heroku_email: "arteagamarcelo@gmail.com"
+          justlogin: true
+        run: python manage.py migrations
