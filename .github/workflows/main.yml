@@ -56,6 +56,14 @@ jobs:
           heroku_app_name: "django-base-backend" #Must be unique in Heroku
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
+          docker_build_args: |
+            DEBUG
+            ALLOWED_HOSTS
+            SECRET_KEY
+            DB_ENGINE
+            DB_NAME
+            TIME_ZONE
+            LANGUAGE_CODE
         env:
           DEBUG: "true"
           ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
