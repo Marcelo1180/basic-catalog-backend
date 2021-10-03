@@ -57,7 +57,7 @@ jobs:
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
         env:
-          DEBUG: true
+          DEBUG: "true"
           ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
           SECRET_KEY: "change-secret-key"
           DB_ENGINE: "django.db.backends.sqlite3"
