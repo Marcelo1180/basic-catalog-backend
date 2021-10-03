@@ -10,6 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
   build:
     runs-on: ubuntu-latest
 
@@ -69,7 +79,7 @@ jobs:
           HD_DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
 
       - name: Run migrations Django on heroku
-        run: heroku run python manage.py makemigrations && heroku run python manage.py migrate
+        run: heroku run python manage.py migrate
 
       - name: Create superuser with ENV vars
         run: heroku run python manage.py createsuperuser --noinput
