@@ -70,8 +70,12 @@ jobs:
           HD_DEBUG: "true"
           HD_ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
           HD_SECRET_KEY: "change-secret-key"
-          HD_DB_ENGINE: "django.db.backends.sqlite3"
-          HD_DB_NAME: "db.sqlite3"
+          HD_DB_ENGINE: "django.db.backends.postgresql_psycopg2"
+          HD_DB_NAME: ${{ secrets.DB_NAME }}
+          HD_DB_USER: ${{ secrets.DB_USER }}
+          HD_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          HD_DB_HOST: ${{ secrets.DB_HOST }}
+          HD_DB_PORT: "5432"
           HD_TIME_ZONE: "America/La_Paz"
           HD_LANGUAGE_CODE: "es-ES"
           HD_DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
@@ -84,10 +88,11 @@ jobs:
           SLACK_CHANNEL: general
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
           SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'Post Content :rocket:'
-          SLACK_TITLE: Post Title
+          SLACK_MESSAGE: 'django-base-backend deployed :rocket:'
+          SLACK_TITLE: Django Base Backend
           SLACK_USERNAME: rtCamp
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
       - name: Run migrations Django on heroku
         run: heroku run python manage.py migrate
 
