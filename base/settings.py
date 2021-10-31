@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "")]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -146,3 +147,17 @@ SWAGGER_SETTINGS = {
         "DRF Token": {"type": "apiKey", "name": "Authorization", "in": "header"}
     },
 }
+
+# Cors headers
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+    "x-requested-with",
+    "content-type",
+    "accept",
+    "origin",
+    "authorization",
+)
+
+# Enable forwarder https headers (heroku)
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
