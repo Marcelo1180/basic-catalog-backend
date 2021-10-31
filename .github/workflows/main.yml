@@ -36,10 +36,17 @@ jobs:
           HD_DB_HOST: ${{ secrets.DB_HOST }}
           HD_DB_PORT: "5432"
           HD_TIME_ZONE: "America/La_Paz"
-          HD_LANGUAGE_CODE: "es-ES"
+          HD_LANGUAGE_CODE: "en-EN"
           HD_DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
           HD_DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
           HD_DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }
+          EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          EMAIL_USE_TLS: True
+          DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }
+
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
