@@ -1,18 +1,3 @@
-"""base URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
@@ -20,18 +5,21 @@ from django.conf import settings
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from base.apps.account.views import view_status
 
 
 urlpatterns = [
+    path("", view_status),
     path("account/v1/", include("base.apps.account.urls")),
+    path("catalog/v1/", include("base.apps.catalog.urls")),
 ]
 
 # Show apidoc if DEBUG is activated
 schema_view = get_schema_view(
     openapi.Info(
-        title="Project Base v1",
-        default_version="v1",
-        description="Base Django",
+        title="Test Zebrands Backend",
+        default_version="v0.0.1",
+        description="Basic catalog system to manage products",
         terms_of_service="https://raw.githubusercontent.com/Marcelo1180/django-base-backend/main/LICENSE",
         contact=openapi.Contact(email="arteagamarcelo@gmail.com"),
         license=openapi.License(name="MIT License"),

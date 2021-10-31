@@ -1,4 +1,3 @@
-import datetime
 import pytz
 from django.utils import timezone
 

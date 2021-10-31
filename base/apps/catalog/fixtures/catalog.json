@@ -1,0 +1,124 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$4cUs6URqiau9EwgpEUqLp9$ueFC9BtYG1odbsIoqQ6IbzZeQnFU3sbcB0aflBCArdk=",
+            "last_login": "2021-06-01T14:31:54.488Z",
+            "is_superuser": false,
+            "username": "staff.user",
+            "first_name": "User Admin",
+            "last_name": "",
+            "email": "admin@demo.org",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-06-01T12:23:06Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$4cUs6URqiau9EwgpEUqLp9$ueFC9BtYG1odbsIoqQ6IbzZeQnFU3sbcB0aflBCArdk=",
+            "last_login": "2021-06-01T14:31:54.488Z",
+            "is_superuser": false,
+            "username": "active.user",
+            "first_name": "Usuario activo sin privilegios",
+            "last_name": "",
+            "email": "admin@demo.org",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-06-01T12:23:06Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "catalog.brand",
+        "pk": 1,
+        "fields": {
+            "name": "rem"
+        }
+    },
+    {
+        "model": "catalog.brand",
+        "pk": 2,
+        "fields": {
+            "name": "prosa"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 1,
+        "fields": {
+            "sku": "LU1001",
+            "name": "Almohada Ajustable",
+            "price": "782.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 2,
+        "fields": {
+            "sku": "LU1002",
+            "name": "Almohada Cool Memory Gel",
+            "price": "1259.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 3,
+        "fields": {
+            "sku": "LU1003",
+            "name": "Almohada Cool Purity Grafeno",
+            "price": "1599.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 4,
+        "fields": {
+            "sku": "LU2001",
+            "name": "Removedor de maquillaje",
+            "price": "32.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 5,
+        "fields": {
+            "sku": "LU2002",
+            "name": "Tinte para el cabello",
+            "price": "12.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 6,
+        "fields": {
+            "sku": "LU2003",
+            "name": "Jabon neutral",
+            "price": "15.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    }
+]

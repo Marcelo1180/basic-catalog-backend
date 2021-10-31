@@ -1,0 +1,88 @@
+[
+    {
+        "model": "catalog.brand",
+        "pk": 1,
+        "fields": {
+            "name": "rem"
+        }
+    },
+    {
+        "model": "catalog.brand",
+        "pk": 2,
+        "fields": {
+            "name": "prosa"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 1,
+        "fields": {
+            "sku": "LU1001",
+            "name": "Almohada Ajustable",
+            "price": "782.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 2,
+        "fields": {
+            "sku": "LU1002",
+            "name": "Almohada Cool Memory Gel",
+            "price": "1259.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 3,
+        "fields": {
+            "sku": "LU1003",
+            "name": "Almohada Cool Purity Grafeno",
+            "price": "1599.00",
+            "brand": 1,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 4,
+        "fields": {
+            "sku": "LU2001",
+            "name": "Removedor de maquillaje",
+            "price": "32.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 5,
+        "fields": {
+            "sku": "LU2002",
+            "name": "Tinte para el cabello",
+            "price": "12.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 6,
+        "fields": {
+            "sku": "LU2003",
+            "name": "Jabon neutral",
+            "price": "15.00",
+            "brand": 2,
+            "created": "2021-10-30T14:18:18.905Z",
+            "updated": "2021-10-30T14:18:20.691Z"
+        }
+    }
+]

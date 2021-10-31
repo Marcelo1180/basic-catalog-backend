@@ -1,11 +1,12 @@
-# Project django base for examples
+# Test zebrands backend
 
 This project was tested in:
-- Debian 10
-- MacOSX Big Sur
+
+* Debian 10
+* MacOSX Big Sur
 
 ## Requirements
-  - pipenv
+* [pipenv](https://pypi.org/project/pipenv/)
 
 ## Installation guide
 * [Installing the project](INSTALL.md)
@@ -13,7 +14,7 @@ This project was tested in:
 
 Setup config settings
 ```sh
-cp settings.example.json settings.json 
+cp .env.example .env
 ```
 __DEBUG=true__ is used for debugging mode, in this mode you can use:
 - admin/ (Classic admin of django)

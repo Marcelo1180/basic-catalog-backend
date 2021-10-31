@@ -2,12 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [ develop ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
@@ -21,13 +22,13 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_APIKEY }}
-          heroku_app_name: "django-base-backend"
+          heroku_app_name: "test-zebrands-backend"
           heroku_email: "arteagamarcelo@gmail.com"
           usedocker: true
         env:
           HD_DEBUG: "true"
-          HD_ALLOWED_HOSTS: "django-base-backend.herokuapp.com"
-          HD_SECRET_KEY: "change-secret-key"
+          HD_ALLOWED_HOSTS: "test-zebrands-backend.herokuapp.com"
+          HD_SECRET_KEY: ${{ secrets.APP_KEY }}
           HD_DB_ENGINE: "django.db.backends.postgresql_psycopg2"
           HD_DB_NAME: ${{ secrets.DB_NAME }}
           HD_DB_USER: ${{ secrets.DB_USER }}
@@ -46,7 +47,7 @@ jobs:
           SLACK_CHANNEL: general
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
           SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'django-base-backend deployed :rocket:'
+          SLACK_MESSAGE: 'test-zebrands-backend deployed :rocket:'
           SLACK_TITLE: Django Base Backend
           SLACK_USERNAME: rtCamp
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

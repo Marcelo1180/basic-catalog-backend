@@ -1,0 +1,13 @@
+Hi there,
+
+Product {{product}} has changed.
+
+The product at now is:
+
+    Stock Keeping Unit: {{sku}}
+    Product Name: {{name}}
+    Price: {{price}}
+    Brand: {{brand}}
+
+If you have any questions, we're happy to help. Please reach out to us at {{sender}}.
+Cheers,.

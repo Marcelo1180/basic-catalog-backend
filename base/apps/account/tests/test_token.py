@@ -4,7 +4,6 @@ from django.test import TestCase, Client, override_settings
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-
 class TestCaseToken(APITestCase):
     fixtures = ["base/apps/account/tests/fixtures/auth_users.json"]
 

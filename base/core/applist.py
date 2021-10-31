@@ -9,7 +9,10 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
 )
 
-LOCAL_APPS = ("base.apps.account",)
+LOCAL_APPS = (
+    "base.apps.account",
+    "base.apps.catalog",
+)
 
 THIRD_PARTY_APPS = (
     "rest_framework",

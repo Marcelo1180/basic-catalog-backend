@@ -17,6 +17,7 @@ from pathlib import Path
 from .core.applist import *
 from .core.database import *
 from .core.internationalization import *
+from .core.mailserver import *
 from distutils.util import strtobool
 
 
