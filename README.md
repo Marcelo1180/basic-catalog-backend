@@ -10,7 +10,6 @@ This project was tested in:
 
 ## Installation guide
 * [Installing the project](INSTALL.md)
-* [How use git](FAQ.md)
 
 Setup config settings
 ```sh
