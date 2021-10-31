@@ -40,12 +40,12 @@ jobs:
           HD_DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
           HD_DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
           HD_DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
-          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
-          EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
-          EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
-          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
-          EMAIL_USE_TLS: True
-          DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
+          HD_EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          HD_EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+          HD_EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
+          HD_EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          HD_EMAIL_USE_TLS: True
+          HD_DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
 
 
       - name: Slack Notification
