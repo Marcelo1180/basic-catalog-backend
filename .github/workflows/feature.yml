@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - feature/*
+  pull_request:
+    branches:
+      - feature/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Deploy dev on heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_APIKEY }}
+          heroku_app_name: "test-zebrands-backend"
+          heroku_email: "arteagamarcelo@gmail.com"
+          usedocker: true
+        env:
+          HD_DEBUG: "true"
+          HD_ALLOWED_HOSTS: "test-zebrands-backend.herokuapp.com"
+          HD_SECRET_KEY: ${{ secrets.APP_KEY }}
+          HD_DB_ENGINE: "django.db.backends.postgresql_psycopg2"
+          HD_DB_NAME: ${{ secrets.DB_NAME_FEATURE }}
+          HD_DB_USER: ${{ secrets.DB_USER_FEATURE }}
+          HD_DB_PASSWORD: ${{ secrets.DB_PASSWORD_FEATURE }}
+          HD_DB_HOST: ${{ secrets.DB_HOST_FEATURE }}
+          HD_DB_PORT: "5432"
+          HD_TIME_ZONE: "America/La_Paz"
+          HD_LANGUAGE_CODE: "en-EN"
+          HD_DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
+          HD_DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
+          HD_DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
+          HD_EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          HD_EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+          HD_EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
+          HD_EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          HD_EMAIL_USE_TLS: True
+          HD_DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
+
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: general
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'test-zebrands-backend deployed :rocket:\n Incomming'
+          SLACK_TITLE: Catalog
+          SLACK_USERNAME: rtCamp
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Run migrations Django on heroku
+        run: heroku run python manage.py migrate
+
+      - name: Create superuser with ENV vars
+        run: heroku run python manage.py createsuperuser --noinput
+
+      - name: Run loaddata Catalog
+        run: heroku run python manage.py loaddata catalog

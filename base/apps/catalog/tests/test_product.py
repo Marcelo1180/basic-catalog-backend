@@ -3,7 +3,6 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from ..models import Product
 from ..models import ProductCounter
-from ..models import ProductTracker
 
 
 class TestCaseToken(APITestCase):
@@ -13,7 +12,7 @@ class TestCaseToken(APITestCase):
     ]
 
     def setUp(self):
-        self.client = Client()
+        self.client = Client(HTTP_USER_AGENT='Mozilla/5.0')
         # Issue auth login successfully
         body = {"username": "admin", "password": "Developer"}
         response = self.client.post("/account/v1/login/", body)
@@ -41,15 +40,6 @@ class TestCaseToken(APITestCase):
         # Check status code
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(ProductCounter.objects.count(), 1)
-
-    def test_product_success_detail_tracker(self):
-        # Issue
-        response = self.client.get(
-            "/catalog/v1/product/1/tracker/",
-        )
-        # Check status code
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(ProductTracker.objects.count(), 1)
 
     def test_product_success_create(self):
         body = {

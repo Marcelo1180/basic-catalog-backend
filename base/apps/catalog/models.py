@@ -28,6 +28,8 @@ class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Product name")
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="Price")
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name="Brand")
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="uploads/", blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -37,10 +39,10 @@ class Product(models.Model):
         verbose_name_plural = "Products"
 
     def __str__(self):
-        return self.sku
+        return "%s - %s" % (self.sku, self.name)
 
     def __unicode__(self):
-        return self.sku
+        return "%s - %s" % (self.sku, self.name)
 
 
 class ProductCounter(models.Model):
@@ -59,6 +61,12 @@ class ProductCounter(models.Model):
         verbose_name = "Product counter"
         verbose_name_plural = "Product counters"
 
+    def __str__(self):
+        return "%s - %s" % (self.product.sku, self.product.name)
+
+    def __unicode__(self):
+        return "%s - %s" % (self.product.sku, self.product.name)
+
 
 class ProductTracker(models.Model):
     """
@@ -68,9 +76,7 @@ class ProductTracker(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, verbose_name="Product"
     )
-    useragent = models.CharField(
-        max_length=500, verbose_name="useragent", help_text="Trackinfor by User"
-    )
+    useragent = models.TextField(verbose_name="useragent", help_text="Tracking User")
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -78,3 +84,9 @@ class ProductTracker(models.Model):
     class Meta:
         verbose_name = "Product tracker"
         verbose_name_plural = "Product trackers"
+
+    def __str__(self):
+        return "%s - %s" % (self.product.sku, self.product.name)
+
+    def __unicode__(self):
+        return "%s - %s" % (self.product.sku, self.product.name)
