@@ -64,4 +64,4 @@ jobs:
         run: heroku run python manage.py createsuperuser --noinput
 
       - name: Run loaddata Catalog
-        run: heroku run python loaddata catalog
+        run: heroku run python manage.py loaddata catalog
