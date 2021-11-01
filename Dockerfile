@@ -19,7 +19,7 @@ RUN pipenv install --ignore-pipfile --deploy --system
 RUN mkdir static
 RUN python manage.py collectstatic --noinput
 
-RUN python manage.py loaddata catalog
+RUN python manage.py loaddata catalog.json
 
 # ENV PORT=8000
 EXPOSE $PORT

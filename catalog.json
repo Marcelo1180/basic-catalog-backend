@@ -1,0 +1,124 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$4cUs6URqiau9EwgpEUqLp9$ueFC9BtYG1odbsIoqQ6IbzZeQnFU3sbcB0aflBCArdk=",
+      "last_login": "2021-06-01T14:31:54.488Z",
+      "is_superuser": false,
+      "username": "staff.user",
+      "first_name": "User Admin",
+      "last_name": "",
+      "email": "admin@demo.org",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-06-01T12:23:06Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$4cUs6URqiau9EwgpEUqLp9$ueFC9BtYG1odbsIoqQ6IbzZeQnFU3sbcB0aflBCArdk=",
+      "last_login": "2021-06-01T14:31:54.488Z",
+      "is_superuser": false,
+      "username": "active.user",
+      "first_name": "Usuario activo sin privilegios",
+      "last_name": "",
+      "email": "admin@demo.org",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01T12:23:06Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  { "model": "catalog.brand", "pk": 1, "fields": { "name": "Alba" } },
+  { "model": "catalog.brand", "pk": 2, "fields": { "name": "One" } },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "sku": "LM00001",
+      "name": "Mueble de minimalista negro",
+      "price": "385.00",
+      "brand": 1,
+      "description": "El más avanzado: Soporte híper localizado, cero transferencia de movimiento y funda reguladora de temperatura.",
+      "image": "uploads/imagen1.jpeg",
+      "created": "2021-11-01T16:32:15.363Z",
+      "updated": "2021-11-01T17:04:23.363Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "sku": "LM00002",
+      "name": "Mueble de minimalista blanco",
+      "price": "529.50",
+      "brand": 1,
+      "description": "El más vendido: Con 4 capas de soporte ergonómico sin transferencia de movimiento.",
+      "image": "uploads/imagen2.jpeg",
+      "created": "2021-11-01T17:05:32.486Z",
+      "updated": "2021-11-01T17:07:54.035Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "sku": "LM00003",
+      "name": "Mueble de minimalista ecológico",
+      "price": "632.30",
+      "brand": 1,
+      "description": "El de firmeza ideal: Con 2 capas de soporte que no transfieren movimiento.",
+      "image": "uploads/imagen3.jpeg",
+      "created": "2021-11-01T17:06:47.045Z",
+      "updated": "2021-11-01T17:06:47.045Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "sku": "LJ00001",
+      "name": "Anillo con incrustación de diamante",
+      "price": "1500.00",
+      "brand": 2,
+      "description": "Anillo diseñado para brindar el mayor soporte, confort y frescura.",
+      "image": "uploads/imagen4.jpeg",
+      "created": "2021-11-01T17:10:02.183Z",
+      "updated": "2021-11-01T17:10:02.183Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "sku": "LJ00001",
+      "name": "Perlas orientales",
+      "price": "765.50",
+      "brand": 2,
+      "description": "Disfruta el complemento perfecto de tu perfección en temporada de verano.",
+      "image": "uploads/imagen5.jpeg",
+      "created": "2021-11-01T17:12:01.536Z",
+      "updated": "2021-11-01T17:12:01.536Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "sku": "LJ00001",
+      "name": "Perlas blancas",
+      "price": "982.50",
+      "brand": 2,
+      "description": "Adaptables a cualquier temporada. Combínalos utilizando sus broches en cada esquina y crea el relleno ideal para cualquier tipo de clima.",
+      "image": "uploads/imagen6.jpeg",
+      "created": "2021-11-01T17:13:08.370Z",
+      "updated": "2021-11-01T17:13:23.563Z"
+    }
+  }
+]
