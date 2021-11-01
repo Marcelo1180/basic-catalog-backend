@@ -64,3 +64,6 @@ jobs:
 
       - name: Create superuser with ENV vars
         run: heroku run python manage.py createsuperuser --noinput
+
+      - name: Run loaddata Catalog
+        run: heroku run python manage.py loaddata catalog
