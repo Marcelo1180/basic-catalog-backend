@@ -57,6 +57,7 @@ class ProductViewSet(viewsets.ModelViewSet):
                 product_counter.save()
 
                 # Save user agent to tracking
+
                 product_tracker = ProductTracker(product=product, useragent=request.headers)
                 product_tracker.save()
 
