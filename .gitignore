@@ -1,5 +1,7 @@
 # App
 devdatabase
+media/
+uploads/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

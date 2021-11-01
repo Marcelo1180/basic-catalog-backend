@@ -54,7 +54,7 @@ class ProductViewSet(viewsets.ModelViewSet):
                 p = ProductCounter(product=product, counter=1)
                 p.save()
             finally:
-                serializer = ProductSerializer(product)
+                serializer = ProductSerializer(product, context={"request": request})
                 return JsonResponse(serializer.data, status=200)
 
     @action(detail=True, methods=['get'], permission_classes=[IsAuthenticatedOrReadOnly])
@@ -73,5 +73,5 @@ class ProductViewSet(viewsets.ModelViewSet):
             p = ProductTracker(product=product, useragent=request.headers)
             p.save()
         finally:
-            serializer = ProductSerializer(product)
+            serializer = ProductSerializer(product, context={"request": request})
             return JsonResponse(serializer.data, status=200)

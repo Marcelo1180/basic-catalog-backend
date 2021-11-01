@@ -13,7 +13,7 @@ urlpatterns = [
     path("", view_status),
     path("account/v1/", include("base.apps.account.urls")),
     path("catalog/v1/", include("base.apps.catalog.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Show apidoc if DEBUG is activated
 schema_view = get_schema_view(

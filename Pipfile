@@ -12,6 +12,7 @@ drf-yasg = "*"
 waitress = "*"
 psycopg2-binary = "*"
 django-cors-headers = "*"
+pillow = "*"
 
 [dev-packages]
 pre-commit = "*"

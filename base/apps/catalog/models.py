@@ -28,6 +28,8 @@ class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Product name")
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="Price")
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name="Brand")
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -41,7 +43,6 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.sku
-
 
 class ProductCounter(models.Model):
     """
