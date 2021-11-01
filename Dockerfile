@@ -19,6 +19,8 @@ RUN pipenv install --ignore-pipfile --deploy --system
 RUN mkdir static
 RUN python manage.py collectstatic --noinput
 
+RUN python manage.py loaddata catalog
+
 # ENV PORT=8000
 EXPOSE $PORT
 CMD ["sh", "-c", "waitress-serve --listen=0.0.0.0:$PORT base.wsgi:application"]
